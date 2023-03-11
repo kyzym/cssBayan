@@ -1,24 +1,44 @@
 /* mobile 320x568, tablet 820x1180, desktop 1920×1080 */
+
+body {
+  height: 101vh;
+}
+
 .container {
   margin: 0 auto;
   width: 80%;
 }
 
+.accordion-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.accordion-content,
+.accordion-content-image {
+  text-align: center; 
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: height 1s ease, opacity 1s ease 0.5s;
+}
+
+
 .accordion-hero-title {
   font-size: 1.5em;
 }
 
-.accordion-header{
-    font-size: 1.2em;
+.accordion-header {
+  font-size: 1.2em;
 }
 
 @media screen and (min-width: 820px) {
   .accordion-hero-title {
     font-size: 2em;
   }
-  .accordion-header{
+  .accordion-header {
     font-size: 1em;
-}
+  }
 }
 @media screen and (min-width: 1080px) {
   .accordion-hero-title {
@@ -26,12 +46,13 @@
   }
 }
 
-. .accordion:hover .accordion-icon__closed {
+.accordion:hover .accordion-icon__closed {
   display: block;
 }
 .accordion .accordion-icon__closed {
   display: none;
 }
+
 .accordion:hover .accordion-header {
   color: blue;
 }
@@ -50,44 +71,40 @@
   justify-content: space-between;
 }
 
-.accordion-content {
-  display: none;
-  padding: 1em;
-}
-
-input[type="radio"]:checked + .accordion-item .accordion-content {
-  display: block;
-  text-align: center;
-}
 
 input[type="radio"]:checked + .accordion-item .accordion-header {
   color: blue;
 }
 
-input[type="radio"]:checked
-  + .accordion-item
-  .accordion-header
-  .accordion-indicator {
-  background-color: #000;
+input[type="radio"]:checked + .accordion-item .accordion-content,
+input[type="radio"]:checked + .accordion-item .accordion-content-image {
+  height: auto;
+  opacity: 1;
+  transition: height 1s ease, opacity 1s ease;
 }
 
+.accordion-item:hover .accordion-content,
+.accordion-item .accordion-content-image {
+  height: auto;
+  opacity: 1;
+  transition: height 1s ease, opacity 1s ease;
+}
+
+
+
 input[type="radio"]:checked + .accordion-item .accordion-icon__opened {
-  /* visibility: visible; */
   display: block;
 }
 
 input[type="radio"]:checked + .accordion-item .accordion-icon__closed {
-  /* visibility: hidden; */
   display: none;
 }
 
 .accordion-item:hover .accordion-icon__opened {
-  /* visibility: visible; */
   display: block;
 }
 
 .accordion-item:hover .accordion-icon__closed {
-  /* visibility: hidden; */
   display: none;
 }
 
@@ -95,12 +112,11 @@ input[type="radio"] {
   display: none;
 }
 
-.accordion-item:hover .accordion-content {
-  display: block;
-  text-align: center;
-}
 
 .accordion-icon__opened {
   display: none;
-  /* visibility: hidden; */
 }
+
+
+
+
