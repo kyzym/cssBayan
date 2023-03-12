@@ -1,8 +1,7 @@
-/* mobile 320x568, tablet 820x1180, desktop 1920×1080 */
-
 body {
   height: 101vh;
   background-color: cornflowerblue;
+  font-family: Bangers ;
 }
 
 input[type="radio"] {
