@@ -1,7 +1,7 @@
 body {
   height: 101vh;
   background-color: cornflowerblue;
-  font-family: Bangers ;
+  font-family: Bangers;
 }
 
 input[type="radio"] {
@@ -11,6 +11,17 @@ input[type="radio"] {
 .container {
   margin: 0 auto;
   width: 80%;
+}
+
+.accordion-content,
+.accordion-content-image {
+  max-width: 90%;
+  text-align: center;
+  overflow: hidden;
+  max-height: 0;
+
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 1s ease 0.3s;
 }
 
 @media screen and (min-width: 820) {
@@ -28,16 +39,6 @@ input[type="radio"] {
   .accordion-content-image {
     max-width: 70%;
   }
-}
-
-.accordion-content,
-.accordion-content-image {
-  max-width: 90%;
-  text-align: center;
-  height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: height 1s ease, opacity 1s ease 0.5s;
 }
 
 .accordion-hero-title {
@@ -85,14 +86,15 @@ input[type="radio"]:checked + .accordion-item .accordion-header {
 
 input[type="radio"]:checked + .accordion-item .accordion-content,
 input[type="radio"]:checked + .accordion-item .accordion-content-image {
-  height: auto;
+  max-height: 100vh;
   opacity: 1;
-  transition: height 1s ease, opacity 1s ease;
+  transition: max-height 0.5s ease, opacity 1s ease;
 }
 
 .accordion-header {
   flex-direction: column;
 }
+
 .accordion-header-wrapper {
   width: 100%;
   display: flex;
@@ -115,14 +117,17 @@ input[type="radio"]:checked + .accordion-item .accordion-icon__opened {
 .accordion:active .accordion-header {
   color: blue;
 }
+
 .accordion-item:active .accordion-content,
 .accordion-item .accordion-content-image {
-  height: auto;
-  transition: height 1s ease, opacity 1s ease;
+  max-height: 100vh;
+  transition: max-height 0.5s ease, opacity 1s ease;
 }
+
 .accordion:active .accordion-icon__opened {
   transition: opacity 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
 .accordion-item:active .accordion-icon__opened {
   transform: rotate(45deg);
   transition: opacity 300ms transform(45deg) cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -132,22 +137,27 @@ input[type="radio"]:checked + .accordion-item .accordion-icon__opened {
   .accordion-icon__opened {
     opacity: 0;
   }
+
   .accordion:hover .accordion-header {
     color: blue;
   }
+
   .accordion-item:hover .accordion-content,
   .accordion-item .accordion-content-image {
-    height: auto;
+    max-height: 100vh;
     opacity: 1;
-    transition: height 1s ease, opacity 1s ease;
+    transition: max-height 0.5s ease, opacity 1s ease;
   }
+
   .accordion:hover .accordion-icon__opened {
     opacity: 1;
     transition: opacity 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
   }
+  
   .accordion-item:hover .accordion-icon__opened {
     transform: rotate(45deg);
     opacity: 1;
-    transition: opacity 300ms transform 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: opacity 300ms transform 300ms
+      cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 }
